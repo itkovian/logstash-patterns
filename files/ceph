@@ -14,7 +14,7 @@ CEPH_PGMAP_OBJ_RECOV %{CEPH_BYTES:objrecovthr}/s, %{NONNEGINT:objrecovhz:int} ob
 CEPH_PGMAP .*? pgmap v(?<pgmapv>[0-9]+): %{NONNEGINT:pgs:int} pgs: (?:%{CEPH_PGMAP_DETAIL})(?:; %{CEPH_PGMAP_VOLUME})?(?:; %{CEPH_PGMAP_ACT})?(?:; %{CEPH_PGMAP_OBJ_DEGRADED})?(?:; %{CEPH_PGMAP_OBJ_RECOV})?$
 
 # NONNEGINT to support osd.0
-CEPH_SLOW_REQUEST_SECONDS (?<slowrequestseconds>%{NONNEGINT})(?:\.%{NONNEGINT})?
+CEPH_SLOW_REQUEST_SECONDS %{NONNEGINT:slowrequestseconds:int}(?:\.%{NONNEGINT})?
 CEPH_SLOW_REQUEST_SINGLE slow request
 CEPH_SLOW_REQUEST_OLDEST %{NONNEGINT:slowrequestnumber:int} slow requests, .*? oldest blocked for .*?
 
